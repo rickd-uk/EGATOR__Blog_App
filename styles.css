@@ -237,3 +237,14 @@ nav button {
 }
 
 /* #endregion FEATURED */
+
+/* #region POSTS */
+
+.posts__container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 4rem;
+	margin-bottom: 4rem;
+}
+
+/* #endregion POSTS */
