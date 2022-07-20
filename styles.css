@@ -83,3 +83,13 @@ h3 {
 h4 {
 	font-style: 1rem;
 }
+
+a {
+	color: var(--color-white);
+}
+
+img {
+	display: block;
+	width: 100%;
+	object-fit: cover;
+}
