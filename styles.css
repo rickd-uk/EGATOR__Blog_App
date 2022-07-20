@@ -262,3 +262,65 @@ nav button {
 	gap: 1rem;
 }
 /* #endregion CATEGORY BUTTONS */
+
+/* #region CATEGORY FOOTER */
+footer {
+	background: var(--color-gray-900);
+	padding: 5rem 0 0;
+	box-shadow: inset 0 1.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.footer__socials {
+	margin-inline: auto;
+	width: fit-content;
+	margin-bottom: 5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.2rem;
+}
+
+.footer__socials a {
+	background: var(--color-bg);
+	border-radius: 50%;
+	height: 2.3rem;
+	width: 2.3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer__socials a:hover {
+	background: var(--color-white);
+	color: var(--color-bg);
+}
+
+.footer__container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+footer li {
+	padding: 0.4rem 0;
+}
+
+footer h4 {
+	color: var(--color-white);
+	margin-bottom: 0.6rem;
+}
+
+footer ul a {
+	opacity: 0.75;
+}
+footer ul a:hover {
+	letter-spacing: 0.1rem;
+	opacity: 1;
+}
+
+.footer__copyright {
+	text-align: center;
+	padding: 1.5rem 0;
+	border-top: 2px solid var(--color-bg);
+	margin-top: 4rem;
+}
+/* #endregion CATEGORY FOOTER */
