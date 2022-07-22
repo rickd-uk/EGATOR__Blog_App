@@ -403,6 +403,15 @@ footer ul a:hover {
 }
 /* #endregion CATEGORY POSTS */
 
+/* #region EMPTY PAGES */
+.empty__page {
+	height: 70vh;
+	text-align: center;
+	display: grid;
+	place-content: center;
+}
+/* #endregion EMPTY PAGES */
+
 /* #region  MEDIA QUERIES (Medium-Sized Devices) */
 @media screen and (max-width: 1024px) {
 	/* #region  GENERAL STYLES */
