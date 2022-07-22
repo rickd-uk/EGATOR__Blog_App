@@ -372,6 +372,25 @@ footer ul a:hover {
 }
 /* #endregion CATEGORY BUTTON */
 
+/* #region SINGLE POST */
+.singlePost {
+	margin: 6rem 0 2rem;
+}
+.singlePost__container {
+	width: var(--form-width);
+	background: var(--color-gray-900);
+	padding: 1rem 2rem 3rem;
+}
+.singlePost__container p {
+	margin-top: 1rem;
+	line-height: 1.7;
+}
+.singlePost__thumbnail {
+	margin: 1.5rem 0 1rem;
+}
+
+/* #endregion SINGLE POST */
+
 /* #endregion CATEGORY SEARCH */
 
 /* #region  MEDIA QUERIES (Medium-Sized Devices) */
@@ -538,5 +557,12 @@ footer ul a:hover {
 		width: var(--container-width-md);
 	}
 	/* #endregion  BLOG */
+
+	/* #region  SINGLE POST */
+	.singlePost__container {
+		background-color: transparent;
+		padding: 0;
+	}
+	/* #endregion  SINGLE POST */
 }
 /* #endregion  MEDIA QUERIES (Small-Sized Devices) */
