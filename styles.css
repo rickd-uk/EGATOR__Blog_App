@@ -495,6 +495,12 @@ footer ul a:hover {
 		grid-template-columns: 1fr 1fr;
 	}
 
+	/* #region  BLOG */
+	.search__bar-container {
+		width: 60%;
+	}
+	/* #endregion  BLOG */
+
 	/* #endregion  GENERAL STYLES */
 }
 /* #endregion  MEDIA QUERIES *(Medium-Sized Devices) */
@@ -527,5 +533,10 @@ footer ul a:hover {
 		text-align: center;
 		gap: 2rem;
 	}
+	/* #region  BLOG */
+	.search__bar-container {
+		width: var(--container-width-md);
+	}
+	/* #endregion  BLOG */
 }
 /* #endregion  MEDIA QUERIES (Small-Sized Devices) */
