@@ -393,6 +393,16 @@ footer ul a:hover {
 
 /* #endregion CATEGORY SEARCH */
 
+/* #region CATEGORY POSTS */
+.category__title {
+	height: 11rem;
+	margin-top: 4.5rem;
+	background: var(--color-gray-900);
+	display: grid;
+	place-items: center;
+}
+/* #endregion CATEGORY POSTS */
+
 /* #region  MEDIA QUERIES (Medium-Sized Devices) */
 @media screen and (max-width: 1024px) {
 	/* #region  GENERAL STYLES */
