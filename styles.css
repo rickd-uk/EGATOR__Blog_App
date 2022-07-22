@@ -358,6 +358,7 @@ footer ul a:hover {
 		position: relative;
 	}
 	.nav__items {
+		display: none;
 		position: absolute;
 		flex-direction: column;
 		top: 100%;
@@ -376,6 +377,37 @@ footer ul a:hover {
 		box-shadow: -2rem 3rem 7rem rgba(0, 0, 0, 0.7);
 		background: var(--color-gray-900);
 		border-top: 1px solid var(--color-bg);
+		opacity: 0;
+
+		animation: animateDropdown 400ms 0s ease forwards;
+		transform-origin: top;
+	}
+
+	.nav__items li:nth-child(2) {
+		animation-delay: 150ms;
+	}
+	.nav__items li:nth-child(3) {
+		animation-delay: 250ms;
+	}
+	.nav__items li:nth-child(4) {
+		animation-delay: 350ms;
+	}
+	.nav__items li:nth-child(5) {
+		animation-delay: 450ms;
+	}
+	.nav__items li:nth-child(6) {
+		animation-delay: 550ms;
+	}
+
+	/* Nav dropodwn animations */
+	@keyframes animateDropdown {
+		0% {
+			transform: rotateX(90deg);
+		}
+		100% {
+			transform: rotateX(0deg);
+			opacity: 1;
+		}
 	}
 
 	.nav__items a {
