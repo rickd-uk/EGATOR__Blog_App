@@ -353,6 +353,7 @@ footer ul a:hover {
 	margin-left: 0.7rem;
 	padding: 0.5rem 0;
 	width: 100%;
+	color: var(--color-white);
 }
 
 .search__bar input::placeholder {
@@ -411,6 +412,66 @@ footer ul a:hover {
 	place-content: center;
 }
 /* #endregion EMPTY PAGES */
+
+/* #region GENERAL FORM */
+.form__section {
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+.form__section-container {
+	width: var(--form-width);
+}
+
+.alert__message {
+	padding: 0.8rem 1.4rem;
+	margin-bottom: 1rem;
+	border-radius: var(--card-border-radius-2);
+}
+
+.alert__message.error {
+	background: var(--color-red-light);
+	color: var(--color-red);
+}
+
+.alert__message.success {
+	background: var(--color-green-light);
+	color: var(--color-green);
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.form__control {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.form__section small {
+	margin-top: 1rem;
+	display: block;
+}
+
+.form__section small a {
+	color: var(--color-primary);
+	margin-left: 1rem;
+}
+
+input,
+textarea,
+select {
+	padding: 0.8rem 1.4rem;
+	background-color: var(--color-gray-900);
+	border-radius: var(--card-border-radius-2);
+	resize: none;
+	color: var(--color-white);
+}
+
+/* #endregion GENERAL FORM */
 
 /* #region  MEDIA QUERIES (Medium-Sized Devices) */
 @media screen and (max-width: 1024px) {
@@ -539,6 +600,12 @@ footer ul a:hover {
 	}
 	/* #endregion  BLOG */
 
+	/* #region  GENERAL FORM */
+	.form__section-container {
+		padding: 3rem;
+	}
+	/* #endregion  GENERAL FORM */
+
 	/* #endregion  GENERAL STYLES */
 }
 /* #endregion  MEDIA QUERIES *(Medium-Sized Devices) */
@@ -583,5 +650,14 @@ footer ul a:hover {
 		padding: 0;
 	}
 	/* #endregion  SINGLE POST */
+
+	/* #region  GENERAL FORM*/
+	.form__section-container {
+		padding: 0;
+	}
+	.form__section form a {
+		padding-bottom: 2rem;
+	}
+	/* #endregion  GENERAL FORM*/
 }
 /* #endregion  MEDIA QUERIES (Small-Sized Devices) */
