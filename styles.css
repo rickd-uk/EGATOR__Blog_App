@@ -418,7 +418,7 @@ footer ul a:hover {
 	display: grid;
 	place-items: center;
 	height: 100vh;
-	margin: 4rem 0 0;
+	margin: 5rem 0;
 }
 .form__section-container {
 	width: var(--form-width);
