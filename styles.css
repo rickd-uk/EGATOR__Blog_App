@@ -371,7 +371,85 @@ footer ul a:hover {
 	transition: var(--transition);
 	color: var(--color-white);
 }
+
+.btn.sm {
+	padding: 0.3rem;
+	font-size: 0.8rem;
+}
+.btn.danger {
+	background-color: red;
+}
+.btn:hover {
+	background: var(--color-white);
+	color: var(--color-bg);
+}
+
 /* #endregion CATEGORY BUTTON */
+
+/* #region DASHBOARD */
+.dashboard {
+	margin-top: 6rem;
+}
+
+.sidebar__toggle {
+	display: none;
+}
+
+.dashboard__container {
+	display: grid;
+	grid-template-columns: 14rem auto;
+	gap: 1rem;
+	background: var(--color-gray-900);
+	padding: 2rem;
+	margin-bottom: 5rem;
+}
+.dashboard aside a {
+	color: var(--color-green);
+	background: var(--color-primary);
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	padding: 1.6rem;
+}
+.dashboard aside ul li:not(:last-child) a {
+	border-bottom: 1px solid var(--color-gray-700);
+}
+.dashboard aside a:hover {
+	background: var(--color-gray-700);
+}
+.dashboard aside a.active {
+	background-color: var(--color-gray-700);
+}
+
+.dashboard main {
+	margin-left: 1.5rem;
+}
+.dashboard main h2 {
+	margin: 0 0 2rem 0;
+	line-height: 1;
+}
+.dashboard main table {
+	width: 100%;
+	text-align: left;
+}
+.dashboard main table th {
+	background: var(--color-gray-700);
+	padding: 0.8rem;
+	color: var(--color-white);
+}
+.dashboard main table td {
+	padding: 0.8rem;
+	border-bottom: 1px solid var(--color-gray-200);
+}
+
+.dashboard main table tr:hover {
+	background-color: var(--color-bg);
+	color: var(--color-white);
+	cursor: default;
+	transition: var(--transition);
+}
+
+/* #endregion DASHBOARD */
 
 /* #region SINGLE POST */
 .singlePost {
@@ -466,6 +544,10 @@ form {
 	color: var(--color-primary);
 	margin-left: 1rem;
 }
+
+/* #region GENERAL DASHBAORD */
+
+/* #endregion GENERAL DASHBAORD */
 
 input,
 textarea,
@@ -613,8 +695,38 @@ select {
 	/* #endregion  GENERAL FORM */
 
 	/* #endregion  GENERAL STYLES */
+
+	/* #region DASHBOARD (Tablets)*/
+	.dashboard__container {
+		grid-template-columns: 4.5rem auto;
+	}
+	.dashboard aside {
+	}
+	.dashboard aside h5 {
+		display: none;
+	}
+	.dashboard main table thead {
+		display: none;
+	}
+	.dashboard main table tr {
+		display: flex;
+		flex-direction: column;
+	}
+	.dashboard main table tr:nth-child(even) {
+		background: var(--color-gray-900);
+	}
+
+	.dashboard main table tr:hover td {
+		background: transparent;
+	}
+
+	/* #endregion DASHBOARD */
+
+	.sidebar__toggle {
+		display: none;
+	}
+	/* #endregion  MEDIA QUERIES *(Medium-Sized Devices) */
 }
-/* #endregion  MEDIA QUERIES *(Medium-Sized Devices) */
 
 /* #region  MEDIA QUERIES (Small-Sized Devices) */
 
@@ -665,5 +777,53 @@ select {
 		padding-bottom: 2rem;
 	}
 	/* #endregion  GENERAL FORM*/
+
+	/* #region  DASHBAORD*/
+	.dashboard {
+		margin-top: 5rem;
+	}
+	.dashboard__container {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+	.dashboard main {
+		margin: 0;
+	}
+	.dashboard main h2 {
+		margin-top: 1rem;
+	}
+	.dashboard aside {
+		position: fixed;
+		box-shadow: 2rem 0 4rem rgba(0, 0, 0, 0.4);
+		left: -100%;
+		height: 100vh;
+		transition: var(--transition);
+		background: var(--color-primary);
+	}
+
+	.dashboard .sidebar__toggle {
+		display: inline-block;
+		background: var(--color-primary-variant);
+		color: var(--color-white);
+		position: fixed;
+		right: 0;
+		bottom: 4rem;
+		z-index: 1;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50% 0 0 50%;
+		font-size: 1.3rem;
+		cursor: pointer;
+		box-shadow: -1rem 0 2rem rgba(0, 0, 0, 0.4);
+	}
+
+	.dashboard aside a h5 {
+		display: inline-block;
+	}
+
+	#hide__sidebar-btn {
+		display: none;
+	}
+	/* #endregion  DASHBAORD*/
 }
 /* #endregion  MEDIA QUERIES (Small-Sized Devices) */
