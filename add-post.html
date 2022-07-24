@@ -52,16 +52,20 @@
 						<option value="1">Travel</option>
 						<option value="1">Art</option>
 						<option value="1">Science</option>
-						<option value="1"></option>
-						<option value="1"></option>
-						<option value="1"></option>
+						<option value="1">Travel</option>
+						<option value="1">Travel</option>
+						<option value="1">Travel</option>
 					</select>
 					<textarea rows="10" placeholder="Body"></textarea>
-					<div class="form__control">
-						<input type="checkbox" id="" />
-						<label for="is_featured" checked>Featured</label>
+					<div class="form__control inline">
+						<input type="checkbox" id="is_featured" />
+						<label for="is_featured">Featured</label>
 					</div>
-					<button class="btn" type="submit">Add</button>
+					<div class="form__control">
+						<label for="file">Add Thumbnail</label>
+						<input type="file" id="thumbnail" />
+					</div>
+					<button type="submit" class="btn">Add Posts</button>
 				</form>
 			</div>
 		</section>
