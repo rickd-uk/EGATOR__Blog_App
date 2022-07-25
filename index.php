@@ -8,7 +8,7 @@
     </div>
     <div class="post__info">
       <a href="" class="category__button">Wildlife</a>
-      <h2 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, nostrum?</a></h2>
+      <h2 class="post__title"><a href="<?= ROOT_URL ?>/post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, nostrum?</a></h2>
       <p class="post__body">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi temporibus aliquid sit nisi odit commodi asperiores voluptate
         qui impedit minus accusamus id nihil beatae eius, explicabo error quibusdam odio nam.
@@ -35,7 +35,7 @@
       <div class="post__info">
         <a href="" class="category__button">Wildlife</a>
         <h3 class="post__title">
-          <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+          <a href="<?= ROOT_URL ?>/post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
           <p class="post__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae blanditiis in ipsam reprehenderit incidunt dolor
           </p>
@@ -58,7 +58,7 @@
       <div class="post__info">
         <a href="" class="category__button">Wildlife</a>
         <h3 class="post__title">
-          <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+          <a href="<?= ROOT_URL ?>/post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
           <p class="post__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae blanditiis in ipsam reprehenderit incidunt dolor
           </p>
@@ -81,7 +81,7 @@
       <div class="post__info">
         <a href="" class="category__button">Wildlife</a>
         <h3 class="post__title">
-          <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+          <a href="<?= ROOT_URL ?>/post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
           <p class="post__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae blanditiis in ipsam reprehenderit incidunt dolor
           </p>
@@ -104,7 +104,7 @@
       <div class="post__info">
         <a href="" class="category__button">Wildlife</a>
         <h3 class="post__title">
-          <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+          <a href="<?= ROOT_URL ?>/post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
           <p class="post__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae blanditiis in ipsam reprehenderit incidunt dolor
           </p>
@@ -127,7 +127,7 @@
       <div class="post__info">
         <a href="" class="category__button">Wildlife</a>
         <h3 class="post__title">
-          <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+          <a href="<?= ROOT_URL ?>/post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
           <p class="post__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae blanditiis in ipsam reprehenderit incidunt dolor
           </p>
@@ -150,7 +150,7 @@
       <div class="post__info">
         <a href="" class="category__button">Wildlife</a>
         <h3 class="post__title">
-          <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+          <a href="<?= ROOT_URL ?>/post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
           <p class="post__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae blanditiis in ipsam reprehenderit incidunt dolor
           </p>
@@ -173,7 +173,7 @@
       <div class="post__info">
         <a href="" class="category__button">Wildlife</a>
         <h3 class="post__title">
-          <a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+          <a href="<?= ROOT_URL ?>/post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
           <p class="post__body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae blanditiis in ipsam reprehenderit incidunt dolor
           </p>

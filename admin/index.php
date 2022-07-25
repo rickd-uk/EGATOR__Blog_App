@@ -1,7 +1,5 @@
 <?php include 'partials/header.php' ?>
 
-
-
 <section class="dashboard">
 	<div class="container dashboard__container">
 		<button class="sidebar__toggle" id="show__sidebar-btn"><i class="uil uil-angle-right-b"></i></button>
@@ -14,7 +12,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="dashboard.php"><i class="uil uil-postcard"></i>
+					<a href="dashboard.php" class="active"><i class="uil uil-postcard"></i>
 						<h5>Manage Posts</h5>
 					</a>
 				</li>
@@ -34,7 +32,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="manage-categories.php" class="active"><i class="uil uil-list-ul"></i>
+					<a href="manage-categories.php"><i class="uil uil-list-ul"></i>
 						<h5>Manage Categories</h5>
 					</a>
 				</li>
@@ -47,22 +45,28 @@
 				<thead>
 					<tr>
 						<th>Title</th>
+						<th>Category</th>
 						<th>Edit</th>
 						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
+						<td>This is quite a short post</td>
 						<td>Travel</td>
 						<td><a href="edit-category.php" class="btn sm">Edit</a></td>
 						<td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
 					</tr>
 					<tr>
+						<td>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. In a atque reprehenderit est
+						</td>
 						<td>Wildlife</td>
 						<td><a href="edit-category.php" class="btn sm">Edit</a></td>
 						<td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
 					</tr>
 					<tr>
+						<td>Lorem ipsum dolor sit amet consectetur, adipisicing elit..</td>
 						<td>Music</td>
 						<td><a href="edit-category.php" class="btn sm">Edit</a></td>
 						<td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
