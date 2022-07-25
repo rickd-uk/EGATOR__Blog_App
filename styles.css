@@ -145,7 +145,7 @@ nav button {
 
 .nav__profile ul {
 	position: absolute;
-	top: 125%;
+	top: 140%;
 	right: 0;
 	display: flex;
 	flex-direction: column;
@@ -335,6 +335,7 @@ footer ul a:hover {
 	width: 30rem;
 	background: var(--color-gray-900);
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	overflow: hidden;

@@ -34,8 +34,8 @@ const hideSidebar = () => {
 	hideSidebarBtn.style.display = 'none'
 }
 
-showSidebarBtn.addEventListener('click', showSidebar)
-hideSidebarBtn.addEventListener('click', hideSidebar)
+showSidebarBtn && showSidebarBtn.addEventListener('click', showSidebar)
+hideSidebarBtn && hideSidebarBtn.addEventListener('click', hideSidebar)
 // #endregion SIDEBAR
 
 hidden = false
