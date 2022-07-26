@@ -10,8 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="<?= ROOT_URL ?>/css/styles.css" />
-  <script src="<?= ROOT_URL ?>/js/main.js" defer></script>
+  <link rel="stylesheet" href="<?= ROOT_URL ?>css/styles.css" />
+  <script src="<?= ROOT_URL ?>js/main.js" defer></script>
   <title>Blog App with Admin Panel</title>
 </head>
 <!-- #endregion HEAD -->
@@ -22,18 +22,18 @@
     <div class="container nav__container">
       <a class="nav__logo" href="<?= ROOT_URL ?>">STORM</a>
       <ul class="nav__items">
-        <li><a href="<?= ROOT_URL ?>/blog.php">Blog</a></li>
-        <li><a href="<?= ROOT_URL ?>/about.php">About</a></li>
-        <li><a href="<?= ROOT_URL ?>/services.php">Services</a></li>
-        <li><a href="<?= ROOT_URL ?>/contact.php">Contact</a></li>
-        <li><a href="<?= ROOT_URL ?>/signin.php">Sign In</a></li>
+        <li><a href="<?= ROOT_URL ?>blog.php">Blog</a></li>
+        <li><a href="<?= ROOT_URL ?>about.php">About</a></li>
+        <li><a href="<?= ROOT_URL ?>services.php">Services</a></li>
+        <li><a href="<?= ROOT_URL ?>contact.php">Contact</a></li>
+        <li><a href="<?= ROOT_URL ?>signin.php">Sign In</a></li>
         <li class="nav__profile">
           <div class="avatar">
             <img src="./images/avatar1.jpg" alt="" />
           </div>
           <ul>
-            <li><a href="<?= ROOT_URL ?>/admin/index.php">Dashboard</a></li>
-            <li><a href="<?= ROOT_URL ?>/logout.php">Logout</a></li>
+            <li><a href="<?= ROOT_URL ?>admin/index.php">Dashboard</a></li>
+            <li><a href="<?= ROOT_URL ?>logout.php">Logout</a></li>
           </ul>
         </li>
       </ul>

@@ -1,5 +1,6 @@
 <?php
 require 'constants.php';
+require 'functions.php';
 
 error_reporting(1);
 
