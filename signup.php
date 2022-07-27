@@ -1,7 +1,6 @@
 <?php
 require './config/constants.php';
 require './config/functions.php';
-require './config/constants.php';
 
 // get post form data back due to reg Error
 $firstname = $_SESSION['signup-data']['firstname'] ?? null;
