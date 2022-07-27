@@ -13,7 +13,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="dashboard.php"><i class="uil uil-postcard"></i>
+					<a href="index.php"><i class="uil uil-postcard"></i>
 						<h5>Manage Posts</h5>
 					</a>
 				</li>
