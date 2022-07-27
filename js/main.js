@@ -54,3 +54,10 @@ addEventListener('resize', () => {
 		console.log(hidden)
 	}
 })
+
+// clear button for avatar image upload (file input)
+const clear = document.querySelector('#clear')
+const avatar = document.querySelector('#avatar')
+clear.addEventListener('click', () => {
+	avatar.value = ''
+})

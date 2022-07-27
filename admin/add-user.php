@@ -37,15 +37,12 @@ unset($_SESSION['add-user-data'])
 			</select>
 			<label for="avatar">User Avatar</label>
 			<div class="form__control" style="display: flex; flex-direction: row">
-
-				<input type="file" name="avatar" id="avatar" />
+				<input type="file" name="avatar" id="avatar" accept="image/*" />
 				<button class="btn" name="clear" id="clear" type="button" style="float: right; background: green; color: white">Clear</button>
-
 			</div>
 			<div>
 				<button class="btn" name="submit" type="submit">Add</button>
 			</div>
-
 
 		</form>
 	</div>
