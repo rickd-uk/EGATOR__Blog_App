@@ -43,13 +43,13 @@ hidden = false
 addEventListener('resize', () => {
 	if (window.innerWidth > 600 && !hidden) {
 		hidden = true
-		showSidebarBtn.style.display = 'none'
-		hideSidebarBtn.style.display = 'none'
+		showSidebarBtn?.style.display = 'none'
+		hideSidebarBtn?.style.display = 'none'
 		console.log(hidden)
 	}
 	if (window.innerWidth <= 600 && hidden) {
-		showSidebarBtn.style.display = 'inline-block'
-		hideSidebarBtn.style.display = 'inline-block'
+		showSidebarBtn?.style.display = 'inline-block'
+		hideSidebarBtn?.style.display = 'inline-block'
 		hidden = false
 		console.log(hidden)
 	}

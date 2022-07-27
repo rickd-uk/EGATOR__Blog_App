@@ -36,8 +36,6 @@ if (isset($_POST['signin_submit'])) {
         }
         // log user in
 
-
-
         header('location: ' . ROOT_URL . 'admin/');
       } else {
         $_SESSION['signin'] = "Something went wrong";
