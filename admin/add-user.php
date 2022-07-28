@@ -23,7 +23,7 @@ unset($_SESSION['add-user-data'])
 					?></p>
 			</div>
 		<?php endif; ?>
-		<form action="<?= ROOT_URL ?>admin/add-user-logic.php" enctype="multipart/form-data" method="POST">
+		<form action="<?= ROOT_URL ?>admin/add-or-edit-user-logic.php" enctype="multipart/form-data" method="POST">
 			<input type="text" name="firstname" value="<?= $firstname ?>" placeholder="First Name" />
 			<input type="text" name="lastname" value="<?= $lastname ?>" placeholder="Last Name" />
 			<input type="text" name="username" value="<?= $username ?>" placeholder="Username" />
@@ -35,6 +35,7 @@ unset($_SESSION['add-user-data'])
 				<option selected value="0">Author</option>
 				<option value="1">Admin</option>
 			</select>
+			<input type="hidden" name="mode" value="add-user">
 			<label for="avatar">User Avatar</label>
 			<div class="form__control" style="display: flex; flex-direction: row">
 				<input type="file" name="avatar" id="avatar" accept="image/*" />
@@ -43,7 +44,6 @@ unset($_SESSION['add-user-data'])
 			<div>
 				<button class="btn" name="submit" type="submit">Add</button>
 			</div>
-
 		</form>
 	</div>
 </section>

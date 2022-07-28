@@ -1,20 +1,20 @@
 <?php include 'partials/header.php';
 
-
 // get user info from db, but not current user
-
 $current_admin_id = $_SESSION['user-id'];
 $query = "SELECT * FROM users where NOT id=$current_admin_id";
 $users = mysqli_query($con, $query);
+$mode = $_SESSION['mode']
 ?>
 
 
 <section class="dashboard">
-	<?php if (isset($_SESSION['add-user-success'])) : ?>
+	<?php if ($mode) : ?>
 		<div>
 			<p class="alert__message success container">
-				<?= $_SESSION['add-user-success'];
-				unset($_SESSION['add-user-success']);
+				<?= $_SESSION["$mode-success"];
+				unset($_SESSION["$mode-success"]);
+				unset($_SESSION['mode'])
 				?>
 			</p>
 		</div>
@@ -72,7 +72,7 @@ $users = mysqli_query($con, $query);
 				</thead>
 				<tbody>
 					<?php while ($user = mysqli_fetch_assoc($users)) : ?>
-						<tr>
+						<tr style="margin-bottom: 2rem;">
 							<td><?= "{$user['firstname']}  {$user['lastname']}" ?></td>
 							<td><?= $user['username'] ?></td>
 							<td><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
