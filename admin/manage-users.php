@@ -1,10 +1,28 @@
-<?php include 'partials/header.php' ?>
+<?php include 'partials/header.php';
+
+
+// get user info from db, but not current user
+
+$current_admin_id = $_SESSION['user-id'];
+$query = "SELECT * FROM users where NOT id=$current_admin_id";
+$users = mysqli_query($con, $query);
+?>
 
 
 <section class="dashboard">
+	<?php if (isset($_SESSION['add-user-success'])) : ?>
+		<div>
+			<p class="alert__message success container">
+				<?= $_SESSION['add-user-success'];
+				unset($_SESSION['add-user-success']);
+				?>
+			</p>
+		</div>
+	<?php endif; ?>
 	<div class="container dashboard__container">
 		<button class="sidebar__toggle" id="show__sidebar-btn"><i class="uil uil-angle-right-b"></i></button>
 		<button class="sidebar__toggle" id="hide__sidebar-btn"><i class="uil uil-angle-left-b"></i></button>
+
 		<aside>
 			<ul>
 				<li>
@@ -53,19 +71,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Frank Willis</td>
-						<td>fwills</td>
-						<td><a href="edit-user.php" class="btn sm">Edit</a></td>
-						<td><a href="delete-user.php" class="btn sm danger">Delete</a></td>
-					</tr>
-
-					<tr>
-						<td>Frank Willis</td>
-						<td>fwills</td>
-						<td><a href="edit-user.php" class="btn sm">Edit</a></td>
-						<td><a href="delete-user.php" class="btn sm danger">Delete</a></td>
-					</tr>
+					<?php while ($user = mysqli_fetch_assoc($users)) : ?>
+						<tr>
+							<td><?= "{$user['firstname']}  {$user['lastname']}" ?></td>
+							<td><?= $user['username'] ?></td>
+							<td><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
+							<td><a href="<?= ROOT_URL ?>admin/delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
+							<td><?= $user['is_admin'] ? 'Yes' : 'No' ?></td>
+						</tr>
+					<?php endwhile; ?>
 				</tbody>
 			</table>
 		</main>

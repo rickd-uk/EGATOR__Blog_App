@@ -1,6 +1,5 @@
 <?php include 'partials/header.php' ?>
 
-
 <section class="form__section">
 	<div class="container form__section-container">
 		<h2>Edit User</h2>
@@ -16,7 +15,6 @@
 		</form>
 	</div>
 </section>
-
 
 
 <?php include '../partials/footer.php' ?>

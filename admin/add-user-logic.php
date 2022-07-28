@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
 
     if (!mysqli_errno($con)) {
       // redirect to login page with success message
-      $_SESSION['add-user-success'] = 'Registration successful. Please log in';
+      $_SESSION['add-user-success'] = "New user $firstname $lastname added";
       header('location: ' . ROOT_URL . 'admin/manage-users.php');
     }
   }

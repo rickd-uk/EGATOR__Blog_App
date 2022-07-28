@@ -43,13 +43,13 @@ hidden = false
 addEventListener('resize', () => {
 	if (window.innerWidth > 600 && !hidden) {
 		hidden = true
-		showSidebarBtn.style.display = 'none'
-		hideSidebarBtn.style.display = 'none'
+		showSidebarBtn && (showSidebarBtn.style.display = 'none')
+		hideSidebarBtn && (hideSidebarBtn.style.display = 'none')
 		console.log(hidden)
 	}
 	if (window.innerWidth <= 600 && hidden) {
-		showSidebarBtn.style.display = 'inline-block'
-		hideSidebarBtn.style.display = 'inline-block'
+		showSidebarBtn && (showSidebarBtn.style.display = 'inline-block')
+		hideSidebarBtn && (hideSidebarBtn.style.display = 'inline-block')
 		hidden = false
 		console.log(hidden)
 	}
@@ -58,6 +58,6 @@ addEventListener('resize', () => {
 // clear button for avatar image upload (file input)
 const clear = document.querySelector('#clear')
 const avatar = document.querySelector('#avatar')
-clear.addEventListener('click', () => {
+clear?.addEventListener('click', () => {
 	avatar.value = ''
 })
