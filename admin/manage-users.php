@@ -74,23 +74,24 @@ $mode = $_SESSION['mode']
 							<th>Admin</th>
 						</tr>
 					</thead>
-				<?php endif; ?>
 
 
 
-				<tbody>
-					<?php while ($user = mysqli_fetch_assoc($users)) : ?>
-						<tr style="margin-bottom: 2rem;">
-							<td><?= "{$user['firstname']}  {$user['lastname']}" ?></td>
-							<td><?= $user['username'] ?></td>
-							<td><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
-							<td><a href="<?= ROOT_URL ?>admin/delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
-							<td><?= $user['is_admin'] ? 'Yes' : 'No' ?></td>
-						</tr>
-					<?php endwhile; ?>
 
-				</tbody>
+					<tbody>
+						<?php while ($user = mysqli_fetch_assoc($users)) : ?>
+							<tr style="margin-bottom: 2rem;">
+								<td><?= "{$user['firstname']}  {$user['lastname']}" ?></td>
+								<td><?= $user['username'] ?></td>
+								<td><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
+								<td><a href="<?= ROOT_URL ?>admin/delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
+								<td><?= $user['is_admin'] ? 'Yes' : 'No' ?></td>
+							</tr>
+						<?php endwhile; ?>
+
+					</tbody>
 				</table>
+			<?php endif; ?>
 		</main>
 	</div>
 </section>

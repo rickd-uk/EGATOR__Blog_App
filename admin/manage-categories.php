@@ -1,4 +1,10 @@
-<?php include 'partials/header.php'; ?>
+<?php include 'partials/header.php';
+
+
+$query = "SELECT * from categories ORDER BY  title ASC";  // DESC - Descending Order
+$categories = mysqli_query($con, $query);
+
+?>
 
 <section class="dashboard">
 	<div class="container dashboard__container">
@@ -45,23 +51,29 @@
 
 		<main>
 			<h2>Manage Categories</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>Title</th>
-						<th>Edit</th>
-						<th>Delete</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Travel</td>
-						<td><a href="edit-category.php" class="btn sm">Edit</a></td>
-						<td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-					</tr>
+			<?php if (mysqli_num_rows($categories) == 0) : ?>
+				<h3 class="alert__message error">There are None</h3>
+			<?php else : ?>
+				<table>
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
 
-				</tbody>
-			</table>
+					<tbody>
+						<?php while ($category = mysqli_fetch_assoc($categories)) : ?>
+							<tr>
+								<td><?= $category['title'] ?></td>
+								<td><a href="<?= ROOT_URL . 'admin/edit-category.php?id=' ?><?= $category['id'] ?>" class="btn sm">Edit</a></td>
+								<td><a href="<?= ROOT_URL . 'admin/delete-category.php?id=' ?><?= $category['id'] ?>" class="btn sm danger">Delete</a></td>
+							</tr>
+						<?php endwhile; ?>
+					</tbody>
+				</table>
+			<?php endif; ?>
 		</main>
 	</div>
 </section>
