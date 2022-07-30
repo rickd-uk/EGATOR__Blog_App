@@ -60,16 +60,24 @@ $mode = $_SESSION['mode']
 
 		<main>
 			<h2>Manage Users</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Username</th>
-						<th>Edit</th>
-						<th>Delete</th>
-						<th>Admin</th>
-					</tr>
-				</thead>
+
+			<?php if (mysqli_num_rows($users) == 0) : ?>
+				<h3 class="alert__message error">There are None</h3>
+			<?php else : ?>
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Username</th>
+							<th>Edit</th>
+							<th>Delete</th>
+							<th>Admin</th>
+						</tr>
+					</thead>
+				<?php endif; ?>
+
+
+
 				<tbody>
 					<?php while ($user = mysqli_fetch_assoc($users)) : ?>
 						<tr style="margin-bottom: 2rem;">
@@ -80,8 +88,9 @@ $mode = $_SESSION['mode']
 							<td><?= $user['is_admin'] ? 'Yes' : 'No' ?></td>
 						</tr>
 					<?php endwhile; ?>
+
 				</tbody>
-			</table>
+				</table>
 		</main>
 	</div>
 </section>

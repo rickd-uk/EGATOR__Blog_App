@@ -1,6 +1,5 @@
 <?php include 'partials/header.php'; ?>
 
-
 <section class="dashboard">
 	<div class="container dashboard__container">
 		<button class="sidebar__toggle" id="show__sidebar-btn"><i class="uil uil-angle-right-b"></i></button>
@@ -60,16 +59,7 @@
 						<td><a href="edit-category.php" class="btn sm">Edit</a></td>
 						<td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
 					</tr>
-					<tr>
-						<td>Wildlife</td>
-						<td><a href="edit-category.php" class="btn sm">Edit</a></td>
-						<td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-					</tr>
-					<tr>
-						<td>Music</td>
-						<td><a href="edit-category.php" class="btn sm">Edit</a></td>
-						<td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-					</tr>
+
 				</tbody>
 			</table>
 		</main>
