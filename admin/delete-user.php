@@ -40,19 +40,3 @@ if (isset($_GET['id'])) {
   header('location: ' . ROOT_URL . 'admin/manage-users.php');
   die();
 }
-?>
-
-
-<!-- <section class="form__section">
-
-  <div class="container form__section-container">
-    <h2>Delete User</h2>
-    <form action="" enctype="multipart/form-data">
-      <div type="text" placeholder="First Name"></div>
-      <div type="text" placeholder="Last Name"></div>
-
-      <button class="btn" type="submit">Delete</button>
-    </form>
-  </div>
-
-</section>
