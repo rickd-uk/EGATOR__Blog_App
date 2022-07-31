@@ -8,6 +8,8 @@ $password = $_SESSION['add-user-data']['password'] ?? null;
 $confirmpassword = $_SESSION['add-user-data']['confirmpassword'] ?? null;
 $userrole = $_SESSION['add-user-data']['userrole'] ?? null;
 
+$_SESSION['mode'] = 'add-user';
+
 // delete session data
 unset($_SESSION['add-user-data'])
 ?>
@@ -35,7 +37,7 @@ unset($_SESSION['add-user-data'])
 				<option selected value="0">Author</option>
 				<option value="1">Admin</option>
 			</select>
-			<input type="hidden" name="mode" value="add-user">
+			<!-- <input type="hidden" name="mode" value="add-user"> -->
 			<label for="avatar">User Avatar</label>
 			<div class="form__control" style="display: flex; flex-direction: row">
 				<input type="file" name="avatar" id="avatar" accept="image/*" />

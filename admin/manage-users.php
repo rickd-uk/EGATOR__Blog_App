@@ -9,16 +9,19 @@ $mode = $_SESSION['mode']
 
 
 <section class="dashboard">
-	<?php if ($mode) : ?>
-		<div>
-			<p class="alert__message success container">
-				<?= $_SESSION["$mode-success"];
-				unset($_SESSION["$mode-success"]);
-				unset($_SESSION['mode'])
-				?>
-			</p>
-		</div>
-	<?php endif; ?>
+	<div>
+		<?php if ($mode) : ?>
+			<div>
+				<p class="alert__message success container">
+					<?= $_SESSION["$mode-success"];
+					unset($_SESSION["$mode-success"]);
+					unset($_SESSION['mode'])
+					?>
+				</p>
+			</div>
+		<?php endif; ?>
+	</div>
+
 	<div class="container dashboard__container">
 		<button class="sidebar__toggle" id="show__sidebar-btn"><i class="uil uil-angle-right-b"></i></button>
 		<button class="sidebar__toggle" id="hide__sidebar-btn"><i class="uil uil-angle-left-b"></i></button>

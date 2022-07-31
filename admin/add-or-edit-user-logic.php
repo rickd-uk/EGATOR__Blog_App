@@ -5,31 +5,30 @@ require 'config/constants.php';
 // Get user id from edit page (passed as hidden input)
 $id = $_POST['id'];
 // Set mode (passed as hidden input)
-$mode = $_POST['mode'];
+$mode = $_SESSION['mode'];
+
 // Set valid modes
 $valid_mode = ['add-user', 'edit-user'];
 
 // get user form if submit btn clicked
-if (isset($_POST['submit']) &&  in_array($_POST['mode'], $valid_mode)) {
-
+if (isset($_POST['submit']) &&  in_array($mode, $valid_mode)) {
   $firstname = filter_var($_POST['firstname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
   $lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
   $username = filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
   $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
   $is_admin = filter_var($_POST['userrole'], FILTER_SANITIZE_NUMBER_INT);
 
-  show($is_admin);
   if ($mode == 'edit-user') {
     $firstname = !$firstname ? $_SESSION['edit-user-initial']['firstname'] : $firstname;
     $lastname = !$lastname ? $_SESSION['edit-user-initial']['lastname'] : $lastname;
     $username = !$username ? $_SESSION['edit-user-initial']['username'] : $username;
     $email = !$email ? $_SESSION['edit-user-initial']['email'] : $email;
+    unset($_SESSION['edit-user-initial']);
   }
 
   if ($mode == 'add-user') {
     $password = filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $confirmpassword = filter_var($_POST['confirmpassword'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
     $avatar = $_FILES['avatar'];
 
     if (!$firstname) {
@@ -61,7 +60,6 @@ if (isset($_POST['submit']) &&  in_array($_POST['mode'], $valid_mode)) {
         $avatar_tmp_name = $avatar['tmp_name'];
         $avatar_des_path = '../images/users/' . $avatar_name;
 
-
         // confirm file is image
         $allowed_img_types = ['png', 'jpg', 'jpeg', 'webp'];
         $ext = explode('.', $avatar_name);
@@ -85,9 +83,6 @@ if (isset($_POST['submit']) &&  in_array($_POST['mode'], $valid_mode)) {
     }
   }
 
-
-
-
   // REDIRECT ON VALIDATION ERROR
   if ($_SESSION[$mode]) {
     // Store user entered data or edit data in array (to send back to previous page)
@@ -100,21 +95,12 @@ if (isset($_POST['submit']) &&  in_array($_POST['mode'], $valid_mode)) {
     header('location: ' . ROOT_URL . "admin/$mode.php");
     die();
   } else {
-
-
     // insert new users into users table
     if ($mode == 'add-user') {
       $query = "INSERT INTO users SET firstname='$firstname', lastname='$lastname', username='$username', email='$email', password='$hashed_password', avatar='$avatar_name', is_admin=$is_admin";
     } elseif ($mode == 'edit-user') {
       $query = "UPDATE users SET firstname='$firstname', lastname='$lastname', username='$username', email='$email', is_admin=$is_admin WHERE id=$id LIMIT 1";
-      // show('id is ' . $id);
-      // show($query);
-      // die();
-
     }
-    $_SESSION['mode'] = $mode;
-
-
     $insert_user_result = mysqli_query($con, $query);
 
     if (!mysqli_errno($con)) {

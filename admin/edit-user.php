@@ -1,5 +1,7 @@
 <?php include 'partials/header.php';
 
+
+
 // get from params
 if (isset($_GET['id'])) {
 	$id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
@@ -17,10 +19,15 @@ if (isset($_GET['id'])) {
 	die();
 }
 
+
+
+$_SESSION['mode'] = 'edit-user';
+
 ?>
 
 <section class="form__section">
 	<div class="container form__section-container">
+
 		<h2>Edit User</h2>
 		<?php if (isset($_SESSION['edit-user'])) : ?>
 			<div>
@@ -39,7 +46,7 @@ if (isset($_GET['id'])) {
 				<option value="0">Author</option>
 				<option <?= $user['is_admin'] ? 'selected' : '' ?> value="1">Admin</option>
 			</select>
-			<input type="hidden" name="mode" value="edit-user">
+			<!-- <input type="hidden" name="mode" value="edit-user"> -->
 			<input type="hidden" name="id" value="<?= $id ?>">
 			<!-- <img style="width: 100px;" src="<?= ROOT_URL ?>images/users/<?= $user['avatar'] ?>">
 			<label for="avatar">User Avatar</label>
