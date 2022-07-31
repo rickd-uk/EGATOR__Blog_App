@@ -1,4 +1,7 @@
-<?php include 'partials/header.php' ?>
+<?php include 'partials/header.php';
+
+$_SESSION['mode'] = 'edit-post';
+?>
 
 <section class="form__section">
 	<div class="container form__section-container">

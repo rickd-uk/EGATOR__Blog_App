@@ -19,10 +19,7 @@ if (isset($_GET['id'])) {
 	die();
 }
 
-
-
 $_SESSION['mode'] = 'edit-user';
-
 ?>
 
 <section class="form__section">

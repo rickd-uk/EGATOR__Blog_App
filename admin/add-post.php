@@ -1,4 +1,7 @@
-<?php include 'partials/header.php' ?>
+<?php include 'partials/header.php';
+
+$_SESSION['mode'] = 'add-post';
+?>
 
 
 <section class="form__section">

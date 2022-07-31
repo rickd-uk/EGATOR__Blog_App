@@ -13,6 +13,7 @@ if (isset($_GET['id'])) {
 	header('location: ' . ROOT_URL . 'admin/manage-categories.php');
 	die();
 }
+$_SESSION['mode'] = 'edit-category';
 ?>
 
 

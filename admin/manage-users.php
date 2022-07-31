@@ -4,23 +4,16 @@
 $current_admin_id = $_SESSION['user-id'];
 $query = "SELECT * FROM users where NOT id=$current_admin_id";
 $users = mysqli_query($con, $query);
-$mode = $_SESSION['mode']
+$mode = $_SESSION['mode'];
+
 ?>
 
 
 <section class="dashboard">
 	<div>
-		<?php if ($mode) : ?>
-			<div>
-				<p class="alert__message success container">
-					<?= $_SESSION["$mode-success"];
-					unset($_SESSION["$mode-success"]);
-					unset($_SESSION['mode'])
-					?>
-				</p>
-			</div>
-		<?php endif; ?>
+		<?php display_message($mode) ?>
 	</div>
+
 
 	<div class="container dashboard__container">
 		<button class="sidebar__toggle" id="show__sidebar-btn"><i class="uil uil-angle-right-b"></i></button>
