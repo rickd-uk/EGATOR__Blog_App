@@ -3,11 +3,14 @@
 
 $query = "SELECT * from categories ORDER BY  title ASC";  // DESC - Descending Order
 $categories = mysqli_query($con, $query);
+$mode = $_SESSION['mode'];
 
 ?>
 
 <section class="dashboard">
-	<?php include 'display-messages.php'; ?>
+
+	<?php display_message($mode) ?>
+
 
 	<div class="container dashboard__container">
 		<button class="sidebar__toggle" id="show__sidebar-btn"><i class="uil uil-angle-right-b"></i></button>

@@ -7,6 +7,14 @@ function show($stuff)
   echo "</pre>";
 }
 
+function show_and_freeze($stuff)
+{
+  echo "<pre>";
+  print_r($stuff);
+  echo "</pre>";
+  die();
+}
+
 ?>
 
 <?php function display_message($mode)
@@ -21,7 +29,7 @@ function show($stuff)
       <p class="alert__message <?= $status ?> container">
         <?= $_SESSION["$mode$task_status"];
         unset($_SESSION["$mode$task_status"]);
-        unset($_SESSION["$mode"]);
+        unset($_SESSION["mode"]);
         ?>
       </p>
     </div>

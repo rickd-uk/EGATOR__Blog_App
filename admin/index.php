@@ -1,6 +1,9 @@
 <?php include 'partials/header.php' ?>
 
 <section class="dashboard">
+
+	<?php display_message($mode) ?>
+
 	<div class="container dashboard__container">
 		<button class="sidebar__toggle" id="show__sidebar-btn"><i class="uil uil-angle-right-b"></i></button>
 		<button class="sidebar__toggle" id="hide__sidebar-btn"><i class="uil uil-angle-left-b"></i></button>

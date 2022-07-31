@@ -8,7 +8,6 @@ $mode = $_SESSION['mode'];
 
 ?>
 
-
 <section class="dashboard">
 	<div>
 		<?php display_message($mode) ?>
@@ -70,9 +69,6 @@ $mode = $_SESSION['mode'];
 							<th>Admin</th>
 						</tr>
 					</thead>
-
-
-
 
 					<tbody>
 						<?php while ($user = mysqli_fetch_assoc($users)) : ?>
