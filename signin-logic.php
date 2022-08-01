@@ -2,6 +2,7 @@
 
 require 'config/database.php';
 
+
 if (isset($_POST['signin_submit'])) {
 
 
@@ -29,6 +30,9 @@ if (isset($_POST['signin_submit'])) {
       if (password_verify($password, $db_password)) {
         // set session for access control
         $_SESSION['user-id'] = $user_record['id'];
+
+
+
 
         // set session if user is an admin
         if ($user_record['is_admin'] == 1) {

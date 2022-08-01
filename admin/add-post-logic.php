@@ -86,6 +86,9 @@ if (isset($_POST['submit'])) {
   // Set is_featured to 0 if Unchecked
   $is_featured = $is_featured == 1 ?: 0;
 
+
+
+
   // Validate form data
   if (!$title) {
     generate_message('Enter title');
@@ -107,6 +110,8 @@ if (isset($_POST['submit'])) {
   if (isset($_SESSION['add-post'])) {
     $_SESSION['add-post-data'] = $_POST;
 
+    //show_and_freeze($_SESSION['add-post']);
+
     header('location: ' . ROOT_URL . 'admin/add-post.php');
     die();
   } else {
@@ -124,6 +129,14 @@ if (isset($_POST['submit'])) {
       $_SESSION['add-post-success'] = "New post added successfully";
       unset($_SESSION['add-post-data']);
 
+      header('location: ' . ROOT_URL . 'admin/');
+      die();
+    } else {
+      // Mode not successful, so it is unset to indicate other error, i.e. db, file system
+
+      // show_and_freeze('Unset');
+      $_SESSION['mode'] = 'add-post-error';
+      unset($_SESSION['add-post-data']);
       header('location: ' . ROOT_URL . 'admin/');
       die();
     }

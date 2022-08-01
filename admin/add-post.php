@@ -1,33 +1,37 @@
 <?php include 'partials/header.php';
 
-$_SESSION['mode'] = 'add-post';
+$mode = $_SESSION['mode'] = 'add-post';
 
 // fetch categories from db
 $query = "SELECT * FROM categories";
 $categories = mysqli_query($con, $query);
+
+$title = $_SESSION['add-post-data']['title'] ?? null;
+$body = $_SESSION['add-post-data']['body'] ?? null;
+$is_featured =  $_SESSION['add-post-data']['is_featured'] ?? null;
+
+$user_is_admin = $_SESSION['user_is_admin'] ?? null;
+
 ?>
 <section class="form__section">
-	<div class="container form__section-container">
+	<div class=" form__section-container">
 		<h2>Add Post</h2>
-		<?php if (isset($_SESSION['add-post'])) : ?>
-			<div class="alert__message error">
-				<p>
-					<?= $_SESSION['add-post'];
-					unset($_SESSION['add-post']); ?>
-				</p>
-			</div>
-		<?php endif; ?>
+
+		<p>
+			<?php display_message($mode) ?>
+		</p>
+
 
 		<form action="<?= ROOT_URL . 'admin/add-post-logic.php' ?>" enctype="multipart/form-data" method="POST">
-			<input type="text" name="title" value="<?= $_SESSION['add-post-data']['title'] ?>" placeholder="Title" />
+			<input type="text" name="title" value="<?= $title ?>" placeholder="Title" />
 			<select name="category_id">
 				<?php while ($category = mysqli_fetch_assoc($categories)) : ?>
 					<option value="<?= $category['id'] ?>"><?= $category['title'] ?></option>
 				<?php endwhile; ?>
 			</select>
-			<textarea rows="10" name="body" placeholder="Body"><?= $_SESSION['add-post-data']['body']  ?></textarea>
+			<textarea rows="10" name="body" placeholder="Body"><?= $body  ?></textarea>
 
-			<?php if (isset($_SESSION['user_is_admin'])) : ?>
+			<?php if (isset($user_is_admin)) : ?>
 				<div class="form__control inline">
 					<input type="checkbox" name="is_featured" value="1" id="is_featured" checked />
 					<label for="is_featured">Featured</label>
@@ -43,3 +47,13 @@ $categories = mysqli_query($con, $query);
 </section>
 
 <?php include '../partials/footer.php' ?>
+
+
+<!-- <?php if (isset($_SESSION['add-post'])) : ?>
+			<div class="alert__message error">
+				<p>
+				<?= $_SESSION['add-post'];
+				unset($_SESSION['add-post']); ?>
+				</p>
+			</div>
+		<?php endif; ?> -->
