@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
 			</select>
 			<textarea rows="10" name="body" pslaceholder="Body"><?= $post['body'] ?></textarea>
 			<div class="form__control inline">
-				<input type="checkbox" name="is_featured" id="is_featured" value="1" checked />
+				<input type="checkbox" name="is_featured" value="1" checked />
 				<label for="is_featured">Featured</label>
 			</div>
 			<div class="form__control">
