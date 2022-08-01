@@ -3,7 +3,7 @@ require 'config/database.php';
 
 function generate_message($msg)
 {
-  $_SESSION['add-post'] = $msg;
+  $_SESSION['edit-post'] = $msg;
 }
 
 function generate_imagefile_name()
@@ -54,9 +54,13 @@ function validate_image($image_filename)
       'type' => 'error',
       'message' => 'Image dimensions should be within 1200 x 800'
     );
-    $_SESSION['add-post'] = 'File dimensions too big. Max: 1200 x 1200';
+    $_SESSION['edit-post'] = 'File dimensions too big. Max: 1200 x 1200';
     // Then Validation Passed
   } else {
+
+
+
+
 
     // Move temp file to destnation & check it was successfully moved
     $imagefile_path = generate_imagefile_path($image_filename);
@@ -76,7 +80,8 @@ function validate_image($image_filename)
 }
 
 if (isset($_POST['submit'])) {
-  $author_id = $_SESSION['user-id'];
+  $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+  $previous_thumbnail_name = filter_var($_POST['previous_thumbnail'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
   $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
   $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
   $category_id = filter_var($_POST['category_id'], FILTER_SANITIZE_NUMBER_INT);
@@ -93,23 +98,24 @@ if (isset($_POST['submit'])) {
     generate_message('Select a category');
   } elseif (!$body) {
     generate_message('Write post contents');
-  } elseif (!$thumbnail['name']) {
-
-    generate_message('Choose a thumbnail');
   } else {
+    if ($thumbnail['name']) {
+      $previous_thumbnail_path = '../images/posts/' . $previous_thumbnail_name;
+      if ($previous_thumbnail_path) unlink($previous_thumbnail_path);
 
-    // Make sure file is an image
-    $image_filename = generate_imagefile_name();
-    validate_image($image_filename);
+      // Make sure file is an image
+      $image_filename = generate_imagefile_name();
+      validate_image($image_filename);
+    }
   }
 
   // Redirect back (with form data) if there are errors
-  if (isset($_SESSION['add-post'])) {
-    $_SESSION['add-post-data'] = $_POST;
+  if (isset($_SESSION['edit-post'])) {
+    $_SESSION['edit-post-data'] = $_POST;
 
-    //show_and_freeze($_SESSION['add-post']);
 
-    header('location: ' . ROOT_URL . 'admin/add-post.php');
+
+    header('location: ' . ROOT_URL . 'admin/');
     die();
   } else {
     // Set is_featured for all posts to 0 if is_featured for this post is 1
@@ -118,27 +124,29 @@ if (isset($_POST['submit'])) {
       $zero_all_is_featured_result = mysqli_query($con, $zero_all_is_featured_query);
     }
 
+    // Set thumbnail if a new one was uploaded, else keep old thumbnail name
+    $thumbnail_to_insert = $thumbnail_name ?? $previous_thumbnail_name;
+
     // Insert post into db
-    $query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured) VALUES ('$title', '$body', '$image_filename', '$category_id', '$author_id', '$is_featured')";
+    $query = "UPDATE posts SET title='$title', body='$body', thumbnail='$thumbnail_to_insert', category_id='$category_id', is_featured='$is_featured' WHERE id=$id LIMIT 1";
     $result = mysqli_query($con, $query);
 
     if (!mysqli_errno($con)) {
-      $_SESSION['add-post-success'] = "New post $title added successfully";
-      unset($_SESSION['add-post-data']);
+      $_SESSION['edit-post-success'] = "New post $title updated successfully";
+      unset($_SESSION['edit-post-data']);
 
       header('location: ' . ROOT_URL . 'admin/');
       die();
     } else {
       // Mode not successful, so it is unset to indicate other error, i.e. db, file system
 
-      // show_and_freeze('Unset');
-      $_SESSION['mode'] = 'add-post-error';
-      unset($_SESSION['add-post-data']);
+      $_SESSION['mode'] = 'edit-post-error';
+      unset($_SESSION['edit-post-data']);
       header('location: ' . ROOT_URL . 'admin/');
       die();
     }
   }
 }
 
-header('location: ' . ROOT_URL . 'admin/add-post.php');
+header('location: ' . ROOT_URL . 'admin/edit-post.php');
 die();

@@ -59,7 +59,7 @@ $mode = $_SESSION['mode'];
 		</aside>
 
 		<main>
-			<h2>Manage Categories</h2>
+			<h2>Manage Posts</h2>
 			<?php if (mysqli_num_rows($posts) == 0) : ?>
 				<h3 class="alert__message error">There are None</h3>
 			<?php else : ?>
