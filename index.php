@@ -60,7 +60,7 @@ $posts = mysqli_query($con, $posts_query)
 <!-- #endregion FEATURED POST -->
 
 <!-- #region POSTS -->
-<section class="posts">
+<section class="posts <?= $featured ? '' : 'section__extra-margin' ?>">
   <div class="container posts__container">
     <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
       <article class="post">
@@ -121,7 +121,6 @@ $posts = mysqli_query($con, $posts_query)
     <?php while ($category = mysqli_fetch_assoc($all_categories)) : ?>
       <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $category['id'] ?>" class="category__button"><?= $category['title'] ?></a>
     <?php endwhile; ?>
-
   </div>
 </section>
 <!-- #endregion CATEGORY BUTTONS -->
