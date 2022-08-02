@@ -12,6 +12,8 @@ $mode = $_SESSION['mode'];
 ?>
 
 <section class="dashboard">
+
+
 	<?php display_message($mode) ?>
 
 	<div class="container dashboard__container">
@@ -80,7 +82,6 @@ $mode = $_SESSION['mode'];
 							$category_query = "SELECT title FROM categories WHERE id = $category_id";
 							$category_result = mysqli_query($con, $category_query);
 							$category = mysqli_fetch_assoc($category_result);
-
 
 							?>
 							<tr>

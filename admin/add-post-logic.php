@@ -1,6 +1,8 @@
 <?php
 require 'config/database.php';
 
+$_SESSION['mode'] = 'add-post';
+
 function generate_message($msg)
 {
   $_SESSION['add-post'] = $msg;

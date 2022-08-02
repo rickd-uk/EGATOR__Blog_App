@@ -1,6 +1,6 @@
 <?php include 'partials/header.php';
 
-$mode = $_SESSION['mode'] = 'add-post';
+$_SESSION['mode'] = 'add-post';
 
 // fetch categories from db
 $query = "SELECT * FROM categories";
@@ -18,7 +18,7 @@ $user_is_admin = $_SESSION['user_is_admin'] ?? null;
 		<h2>Add Post</h2>
 
 		<p>
-			<?php display_message($mode) ?>
+			<?php display_message($_SESSION['mode']) ?>
 		</p>
 
 
@@ -47,13 +47,3 @@ $user_is_admin = $_SESSION['user_is_admin'] ?? null;
 </section>
 
 <?php include '../partials/footer.php' ?>
-
-
-<!-- <?php if (isset($_SESSION['add-post'])) : ?>
-			<div class="alert__message error">
-				<p>
-				<?= $_SESSION['add-post'];
-				unset($_SESSION['add-post']); ?>
-				</p>
-			</div>
-		<?php endif; ?> -->

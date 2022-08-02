@@ -20,7 +20,6 @@ function show_and_freeze($stuff)
 <?php function display_message($mode)
 {
 ?>
-
   <?php if ($_SESSION["$mode-success"] || $_SESSION["$mode"]) : ?>
 
     <?php $task_status =  isset($_SESSION["$mode-success"]) ? '-success' : '' ?>
@@ -29,7 +28,7 @@ function show_and_freeze($stuff)
     <p class="alert__message   <?= $status ?> ">
       <?= $_SESSION["$mode$task_status"];
       unset($_SESSION["$mode$task_status"]);
-      unset($_SESSION["mode"]);
+      unset($_SESSION["$mode"]);
       ?>
     </p>
 
@@ -43,8 +42,6 @@ function show_and_freeze($stuff)
 
   <?php
   $part = explode("-", $mode);
-
-
   if ($part[2] == "error") : ?>
     <p class="alert__message   error">
       <?= "Couldn't $part[0] $part[1] - Contact admin!";
