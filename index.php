@@ -60,6 +60,7 @@ $posts = mysqli_query($con, $posts_query)
 <!-- #endregion FEATURED POST -->
 
 <!-- #region POSTS -->
+
 <section class="posts <?= $featured ? '' : 'section__extra-margin' ?>">
   <div class="container posts__container">
     <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
@@ -108,6 +109,7 @@ $posts = mysqli_query($con, $posts_query)
   </div>
 </section>
 <!-- #endregion POSTS -->
+
 
 
 

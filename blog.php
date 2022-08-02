@@ -8,12 +8,12 @@ $posts = mysqli_query($con, $query);
 
 <!-- #region SEARCH -->
 <section class="search__bar">
-	<form action="" class="container search__bar-container">
+	<form action="<?= ROOT_URL ?>search.php" class="container search__bar-container" method="GET">
 		<div>
 			<i class="uil uil-search"></i>
-			<input type="search" name="" placeholder="Search" />
+			<input type="search" name="search" placeholder="Search" />
 		</div>
-		<button type="submit" class="btn">Go</button>
+		<button type="submit" name="submit" class="btn">Go</button>
 	</form>
 </section>
 <!-- #endregion SEARCH -->
