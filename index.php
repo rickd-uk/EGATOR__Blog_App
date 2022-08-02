@@ -27,13 +27,14 @@ $posts = mysqli_query($con, $posts_query)
         $category = mysqli_fetch_assoc($category_result);
 
         ?>
-        <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $featured['category_id'] ?>" class="category__button">
-          <?= $category['title'] ?>
+        <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $category['id'] ?>" class="category__button"><?= $category['title'] ?></a>
+        <a href="<?= ROOT_URL ?>post.php?id=<?= $featured['id'] ?>">
+          <h2 class="post__title"><?= $featured['title'] ?></h2>
+          <p class="post__body">
+            <?= substr($featured['body'], 300) ?>...
+          </p>
         </a>
-        <h2 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $featured['id'] ?>"><?= $featured['title'] ?></a></h2>
-        <p class="post__body">
-          <?= substr($featured['body'], 300) ?>...
-        </p>
+
         <div class="post__author">
           <?php
           // Fetch author from users table using author id
@@ -52,8 +53,8 @@ $posts = mysqli_query($con, $posts_query)
             </small>
           </div>
         </div>
+        </h2>
       </div>
-    </div>
   </section>
 <?php endif; ?>
 <!-- #endregion FEATURED POST -->
@@ -72,32 +73,34 @@ $posts = mysqli_query($con, $posts_query)
           $category_query = "SELECT * FROM categories WHERE id=$category_id";
           $category_result = mysqli_query($con, $category_query);
           $category = mysqli_fetch_assoc($category_result);
-
           ?>
-          <a href="<?= ROOT_URL ?>category-posts?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
-          <h3 class="post__title">
-            <a href="<?= ROOT_URL ?>post.php"><?= $post['title'] ?></a>
+          <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
+          <h2 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h2>
+          <a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>">
+
             <p class="post__body" style="min-height: 100px;">
               <?= substr($post['body'], 0, 120) ?>...
             </p>
-            <div class="post__author">
-              <?php
-              // Fetch author from users table using author id
-              $author_id = $post['author_id'];
-              $author_query = "SELECT * FROM users WHERE id=$author_id";
-              $author_result = mysqli_query($con, $author_query);
-              $author = mysqli_fetch_assoc($author_result);
-              $author_firstname = $author['firstname'];
-              $author_lastname = $author['lastname'];
-              ?>
-              <div class="post__author-avatar">
-                <img src="./images/users/<?= $author['avatar'] ?>" alt="" />
-              </div>
-              <div class="post__author-info">
-                <h5>By: <?= "{$author_firstname} {$author_lastname}" ?></h5>
-                <small><?= date("M d, Y - H:i", strtotime($post['date_time'])) ?></small>
-              </div>
+          </a>
+
+          <div class="post__author">
+            <?php
+            // Fetch author from users table using author id
+            $author_id = $post['author_id'];
+            $author_query = "SELECT * FROM users WHERE id=$author_id";
+            $author_result = mysqli_query($con, $author_query);
+            $author = mysqli_fetch_assoc($author_result);
+            $author_firstname = $author['firstname'];
+            $author_lastname = $author['lastname'];
+            ?>
+            <div class="post__author-avatar">
+              <img src="./images/users/<?= $author['avatar'] ?>" alt="" />
             </div>
+            <div class="post__author-info">
+              <h5>By: <?= "{$author_firstname} {$author_lastname}" ?></h5>
+              <small><?= date("M d, Y - H:i", strtotime($post['date_time'])) ?></small>
+            </div>
+          </div>
           </h3>
         </div>
       </article>
